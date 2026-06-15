@@ -18,8 +18,10 @@ jobs:
       uses: actions/setup-python@v5
       with:
         python-version: 3.8
+    - name: Install Django first
+      run: pip install Django==2.2.24
     - name: Install dev dependencies
-      run: pip install -r requirements-dev.txt
+      run: pip install --no-build-isolation -r requirements-dev.txt
     - name: Run sanity check
       run: _misc/check_sanity.py
     - name: Run license headers check
